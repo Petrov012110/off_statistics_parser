@@ -1,4 +1,0 @@
-[1217/125930.222:ERROR:process_reader_win.cc(151)] SuspendThread: Отказано в доступе. (0x5)
-[1217/125930.231:ERROR:file_io_win.cc(161)] CreateFile C:\Users\user\AppData\Local\Temp\puppeteer_dev_chrome_profile-K3GeFu\Crashpad\settings.dat: Системе не удается найти указанный путь. (0x3)
-[1217/125930.232:ERROR:file_io_win.cc(170)] CreateFile C:\Users\user\AppData\Local\Temp\puppeteer_dev_chrome_profile-K3GeFu\Crashpad\reports\4e738868-2f7d-4a38-a03e-035148b632f6.dmp: Системе не удается найти указанный путь. (0x3)
-[1217/125930.232:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed

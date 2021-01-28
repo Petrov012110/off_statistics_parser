@@ -1,32 +1,18 @@
-import '@babel/polyfill';
 import express from "express";
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import getPostsInfo from "./puppeteer/new/getPostsInfo";
-import { groupNameType } from "./puppeteer/new/resources/groups";
-import nodemailer from 'nodemailer';
-import mailCredentials from  './mailCredentials';
+import getPostsInfo from "./puppeteer/getPostsInfo";
+// import { groupNameType } from "./puppeteer/resources/groups";
 import puppeteer from 'puppeteer';
-import fs from 'fs';
-
-
 
 const validateEmail = (email: string) => {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
 
-console.log(mailCredentials);
-
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: mailCredentials
-});
-
-
-
 const app = express();
 const PORT = 808;
+let parsedData: { name: string; data: object; }[] = [];
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -35,28 +21,32 @@ const mainFunc = async () => {
     const browser = await puppeteer.launch({
         headless: true,
     });
+
+    //Функция для периодического сканирования групп
+    const parsePages = () => {
+        getPostsInfo(browser)
+            .then(data => {
+                console.log('[parsePages] : data parsed');
+                parsedData = data;
+            })
+            .catch(e => console.error(e))
+            .finally(()=> setTimeout(()=>parsePages(), 1000*60*60*12))
+    };
+
+    //Запускаем сканирование 
+    parsePages();
+
     app.post('/api/parse', (req, res) => {
-        res.send();
         if (req.body) {
             if (
                 req.body.email?.length > 0 && validateEmail(req.body.email) &&
                 req.body.groups.length > 0
             ) {
                 console.log('validation ok')
-                getPostsInfo((req.body.groups as groupNameType[]), ['qwe'], browser)
-                    .then(response => {
-                        return transporter.sendMail({
-                            from: 'vkgroupparser@gmail.com',
-                            to: req.body.email,
-                            subject: "Результат парсинга",
-                            text: JSON.stringify(response),
-                            // html: "This <i>message</i> was sent from <strong>Node js</strong> server."
-                        })
-                    })
-                    .then(result => {
-                        console.log(result)
-                    })
-                    .catch(e => console.log(e))
+                //Тут мы должны из parsedData выдернуть нужные данные, сгенерить excel и вернуть в ответ на запрос
+                res.send(parsedData);
+                
+
             } else console.log('Error: validation failed');
         } else console.log('Error: blank body')
 
