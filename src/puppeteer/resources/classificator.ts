@@ -108,7 +108,6 @@ export const classificator: ClassificatorType = [
         brand: [
             "nike",
             "nik",
-            "n*ke",
             "найк",
             "nake"
         ],
