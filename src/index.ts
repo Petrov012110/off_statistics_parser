@@ -9,9 +9,19 @@ import { groupsList } from "./puppeteer/resources/groups";
 import { ParsedGroupType } from "./puppeteer/types";
 import { filterDataByClassificator } from "./puppeteer/tools/filterDataByClassificator";
 import fs from 'fs';
+import https from 'https';
+
+const sslkey = fs.readFileSync('keys/vkgroupparser.h1n.ru_le_21.03.2021.crt');
+const sslcert = fs.readFileSync('keys/vkgroupparser.h1n.ru_le_21.03.2021.crtkey');
+
+const options = {
+	key: sslkey,
+	cert: sslcert
+};
 
 const SCAN_PERIOD_HOURS = 1;
 const app = express();
+
 const PORT = 808;
 let parsedData: ParsedGroupType[] = [];
 try{
@@ -22,9 +32,9 @@ try{
 	fs.writeFileSync('parsedData.json', JSON.stringify([]));
 }
 
-
 app.use(cors());
 app.use(bodyParser.json());
+
 
 const mainFunc = async () => {
 	const browser = await puppeteer.launch({
@@ -80,9 +90,11 @@ const mainFunc = async () => {
 		console.log('Запрос: ', JSON.stringify(req.body));
 	});
 
-	app.listen(PORT, () => {
-		console.log(`server started at http://localhost:${PORT}`);
-	})
+	// app.listen(PORT, () => {
+	// 	console.log(`server started at http://localhost:${PORT}`);
+	// })
+
+	https.createServer(options, app).listen(PORT)
 };
 
 mainFunc();
