@@ -11,8 +11,8 @@ import { filterDataByClassificator } from "./puppeteer/tools/filterDataByClassif
 import fs from 'fs';
 import https from 'https';
 
-const sslkey = fs.readFileSync('keys/vkgroupparser.h1n.ru_le_21.03.2021.crt');
-const sslcert = fs.readFileSync('keys/vkgroupparser.h1n.ru_le_21.03.2021.crtkey');
+const sslkey = fs.readFileSync('keys/vkgroupparser.h1n.ru_le_21.03.2021.crtkey');
+const sslcert = fs.readFileSync('keys/vkgroupparser.h1n.ru_le_21.03.2021.crt');
 
 const options = {
 	key: sslkey,
