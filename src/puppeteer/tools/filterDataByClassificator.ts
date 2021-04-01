@@ -40,8 +40,20 @@ const checkByModel = (text: string, seriesFromClassificator: SeriesType, modelsF
 
   for (const modelFromFilter of modelsFromFilter) {
     const modelFromClassificator = seriesFromClassificator.models.find(model => model.name === modelFromFilter.name);
-    if (modelFromClassificator) {
-      ret = !!modelFromClassificator?.regexp.find(modelRegex => text.search(modelRegex) >= 0);
+    const unionRexexpArray = seriesFromClassificator?.regexp ? modelFromClassificator?.regexp.reduce<string[]>(
+      (acc, modelRegexp) => {
+        seriesFromClassificator?.regexp?.length > 0
+          ? seriesFromClassificator
+            ?.regexp
+            ?.map((seriesRegexp) => `${seriesRegexp}.*${modelRegexp}`)
+            ?.forEach((unionRegexp) => acc.push(unionRegexp))
+          : acc.push(modelRegexp);
+        return acc;
+      },
+      [],
+    ) : modelFromClassificator?.regexp;
+    if (unionRexexpArray) {
+      ret = !!unionRexexpArray.find(modelRegex => text.search(modelRegex) >= 0);
       if (ret === true) break;
     } else {
       console.warn(`Can not find model "${modelFromFilter.name}" in series "${seriesFromClassificator.name}"`);
