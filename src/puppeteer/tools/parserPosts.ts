@@ -12,6 +12,10 @@ export const parserPosts: ParserPostsType = (elements, currentBase) => {
 
             const html: string = (el.querySelector('.wall_post_text') as HTMLElement).innerText;
             const texthtml: string = html.replace(/\n/gi, ' ');
+            const arrImagesHref = Array.from((el.querySelectorAll('.page_post_thumb_wrap'))).map(el => {
+                const preRes = el.getAttribute('onclick').split('z_')[1];
+                return preRes?.slice(preRes.search('https'), preRes.search('album') + 5).replaceAll('\\', '').replaceAll('\\', '');
+            });
 
             let spantext = '';
             if (el.querySelector('.wall_post_more') as HTMLElement) {
@@ -48,7 +52,8 @@ export const parserPosts: ParserPostsType = (elements, currentBase) => {
                         text: texthtml + spantext,
                         date: (el.querySelector('.post_link>.rel_date') as HTMLElement).innerText,
                         price: lookforprice(texthtml),
-                        post: `https://vk.com/${el.querySelector('.post_header_info>.post_author>.author').getAttribute("href")}?w=wall${el.querySelector('._post_content>.post_header>.post_image>img').getAttribute("data-post-id")}`
+                        post: `https://vk.com/${el.querySelector('.post_header_info>.post_author>.author').getAttribute("href")}?w=wall${el.querySelector('._post_content>.post_header>.post_image>img').getAttribute("data-post-id")}`,
+                        hrefImg: arrImagesHref,
                     });
                     break;
                 }
