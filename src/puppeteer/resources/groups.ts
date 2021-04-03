@@ -3,14 +3,14 @@ export const groupsList = [
         name: 'theMarket',
         href: 'tmrkt',
     },
-    {
-        name: 'stremobzorstore',
-        href: 'stremobzorstore',
-    },
-    {
-        name: 'shmotki',
-        href: 'shmotki_shmotochki',
-    },
+    // {
+    //     name: 'stremobzorstore',
+    //     href: 'stremobzorstore',
+    // },
+    // {
+    //     name: 'shmotki',
+    //     href: 'shmotki_shmotochki',
+    // },
     // {
     //     name: 'getsneakers',
     //     href: 'getsneakers',
