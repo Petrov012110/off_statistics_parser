@@ -12,7 +12,7 @@ export const parserPosts: ParserPostsType = (elements, currentBase) => {
 
             const html: string = (el.querySelector('.wall_post_text') as HTMLElement).innerText;
             const texthtml: string = html.replace(/\n/gi, ' ');
-            const arrImagesHref = Array.from((el.querySelectorAll('.page_post_thumb_wrap'))).map(el => {
+            const arrImagesHref = Array.from((el.querySelectorAll('.wall_text>.page_post_thumb_wrap'))).map(el => {
                 const preRes = el.getAttribute('onclick').split('z_')[1];
                 return preRes?.slice(preRes.search('https'), preRes.search('album') + 5).replaceAll('\\', '').replaceAll('\\', '');
             });
