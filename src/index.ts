@@ -11,13 +11,13 @@ import { filterDataByClassificator } from "./puppeteer/tools/filterDataByClassif
 import fs from 'fs';
 import https from 'https';
 
-const sslkey = fs.readFileSync('keys/vkgroupparser.h1n.ru_le_21.03.2021.crtkey');
-const sslcert = fs.readFileSync('keys/vkgroupparser.h1n.ru_le_21.03.2021.crt');
+// const sslkey = fs.readFileSync('keys/vkgroupparser.h1n.ru_le_21.03.2021.crtkey');
+// const sslcert = fs.readFileSync('keys/vkgroupparser.h1n.ru_le_21.03.2021.crt');
 
-const options = {
-	key: sslkey,
-	cert: sslcert
-};
+// const options = {
+// 	key: sslkey,
+// 	cert: sslcert
+// };
 
 const SCAN_PERIOD_HOURS = 1;
 const app = express();
@@ -90,11 +90,11 @@ const mainFunc = async () => {
 		console.log('Запрос: ', JSON.stringify(req.body));
 	});
 
-	// app.listen(PORT, () => {
-	// 	console.log(`server started at http://localhost:${PORT}`);
-	// })
+	app.listen(PORT, () => {
+		console.log(`server started at http://localhost:${PORT}`);
+	})
 
-	https.createServer(options, app).listen(PORT)
+	// https.createServer(options, app).listen(PORT)
 };
 
 mainFunc();
