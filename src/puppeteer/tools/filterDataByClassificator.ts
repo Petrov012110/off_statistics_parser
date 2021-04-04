@@ -71,7 +71,19 @@ const checkBySeries = (text: string, brandFromClassificator: BrandType, seriesFr
       if (seriesItemFromFilter.models?.length > 0) {
         ret = checkByModel(text, seriesItemFromClassificator, seriesItemFromFilter.models)
       } else {
-        ret = !!seriesItemFromClassificator?.regexp.find(seriesRegex => text.search(seriesRegex) >= 0);
+        const unionRexexpArray = brandFromClassificator?.brand ? seriesItemFromClassificator?.regexp.reduce<string[]>(
+          (acc, seriesRegexp) => {
+            brandFromClassificator?.brand?.length > 0
+              ? brandFromClassificator
+                ?.brand
+                ?.map((brandRegexp) => `${brandRegexp}.*${seriesRegexp}`)
+                ?.forEach((unionRegexp) => acc.push(unionRegexp))
+              : acc.push(seriesRegexp);
+            return acc;
+          },
+          [],
+        ) : seriesItemFromClassificator?.regexp;
+        ret = !!unionRexexpArray.find(seriesRegex => text.search(seriesRegex) >= 0);
       }
       if (ret === true) break;
     } else {
