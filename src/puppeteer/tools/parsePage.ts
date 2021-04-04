@@ -38,6 +38,7 @@ export const parsePage: (page: Page, currentBase: string[]) => Promise<ParsedDat
 			postId: element.postId,
 			price: element.price,
 			post: element.post,
+			hrefImg: element.hrefImg,
 		}));
 
 	if (result.length > 0) {

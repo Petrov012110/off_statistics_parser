@@ -25,6 +25,7 @@ export const filterDataByClassificator: (groups: string[], filterObject: Classif
               text: post.text,
               date: post.date,
               post: post.post,
+              hrefImg: post.hrefImg,
             })),
           })
         }

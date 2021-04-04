@@ -38,7 +38,7 @@ app.use(bodyParser.json());
 
 const mainFunc = async () => {
 	const browser = await puppeteer.launch({
-		headless: false,
+		headless: true,
 	});
 
 	//Функция для периодического сканирования групп
