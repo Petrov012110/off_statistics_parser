@@ -615,6 +615,168 @@ export const classificator: ClassificatorType = [
             },
         ]
     },
+    {
+        id: "81",
+        name: "G-Star RAW",
+        brand: [
+            "G-Star RAW",
+            "g star raw",
+            "g-star",
+        ]
+    },
+    {
+        id: "80",
+        name: "HUF",
+        brand: [
+            "HUF",
+            "HaF",
+            "хаф",
+        ]
+    },
+    {
+        id: "82",
+        name: "FUCKING AWESOME",
+        brand: [
+            "FUCKING AWESOME",
+            "FUCING AWESOME",
+        ]
+    },
+    {
+        id: "82",
+        name: "FTP",
+        brand: [
+            "FTP",
+            "ФТП",
+        ]
+    },
+    {
+        id: "82",
+        name: "Carhartt",
+        brand: [
+            "Carhartt",
+            "Carhart",
+            "Carhatt",
+        ]
+    },
+    {
+        id: "82",
+        name: "Polar Skate Co.",
+        brand: [
+            "Polar Skate",
+            "Polar Skate Co.",
+            "Полар скейт",
+            "Polar"
+        ]
+    },
+    {
+        id: "82",
+        name: "Cav Empt",
+        brand: [
+            "Cav",
+            "Empt",
+            "Cav Empt"
+        ]
+    },
+    {
+        id: "82",
+        name: "Yung Lean",
+        brand: [
+            "Yung",
+            "Lean",
+            "Янг"
+        ]
+    },
+    {
+        id: "82",
+        name: "G59 Records",
+        brand: [
+            "G59",
+            "Records"
+        ]
+    },
+    {
+        id: "82",
+        name: "CultGloria",
+        brand: [
+            "CultGloria"
+        ]
+    },
+    {
+        id: "82",
+        name: "City Morgue",
+        brand: [
+            "Morgue",
+            "City Morgue"
+        ]
+    },
+    {
+        id: "82",
+        name: "TeamSESH",
+        brand: [
+            "TeamSESH"
+        ]
+    },
+    {
+        id: "82",
+        name: "Gnarcotic",
+        brand: [
+            "Gnarcotic"
+        ]
+    },
+    {
+        id: "82",
+        name: "Lil Peep",
+        brand: [
+            "Lil Peep",
+            "Lil",
+            "Peep"
+        ]
+    },
+    {
+        id: "82",
+        name: "XXXtentacion",
+        brand: [
+            "XXXtentacion",
+            "XXtentacion",
+            "XXtentasion"
+        ]
+    },
+    {
+        id: "82",
+        name: "The Hollow Squad",
+        brand: [
+            "Hollow",
+            "Squad",
+            "Hollow Squad"
+        ]
+    },
+    {
+        id: "82",
+        name: "Half-Evil 333",
+        brand: [
+            "Half-Evil",
+            "Half-Evil 333"
+        ]
+    },
+    {
+        id: "82",
+        name: "Superrradical",
+        brand: [
+            "Superrradical",
+            "Superradical",
+            "Superadical"            
+        ]
+    },
+    {
+        id: "82",
+        name: "Drain Gang | Bladee Merch | GTBSG",
+        brand: [
+            "Drain Gang",
+            "Bladee Merch",
+            "GTBSG"            
+        ]
+    },
+
 
     {
         id: "9",
