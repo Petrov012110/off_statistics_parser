@@ -619,7 +619,7 @@ export const classificator: ClassificatorType = [
         id: "81",
         name: "G-Star RAW",
         brand: [
-            "G-Star RAW",
+            "g-star raw",
             "g star raw",
             "g-star",
         ]
@@ -628,8 +628,8 @@ export const classificator: ClassificatorType = [
         id: "80",
         name: "HUF",
         brand: [
-            "HUF",
-            "HaF",
+            "huf",
+            "haf",
             "хаф",
         ]
     },
@@ -637,143 +637,148 @@ export const classificator: ClassificatorType = [
         id: "82",
         name: "FUCKING AWESOME",
         brand: [
-            "FUCKING AWESOME",
-            "FUCING AWESOME",
+            "fucking awesome",
+            "fuking awesome",
         ]
     },
     {
         id: "82",
         name: "FTP",
         brand: [
-            "FTP",
-            "ФТП",
+            "ftp",
+            "фтп",
         ]
     },
     {
         id: "82",
         name: "Carhartt",
         brand: [
-            "Carhartt",
-            "Carhart",
-            "Carhatt",
+            "сarhartt",
+            "сarhart",
+            "сarhatt",
         ]
     },
     {
         id: "82",
         name: "Polar Skate Co.",
         brand: [
-            "Polar Skate",
-            "Polar Skate Co.",
-            "Полар скейт",
-            "Polar"
+            "polar skate",
+            "polar skate co.",
+            "polar skate co",
+            "полар скейт",
+            "polar"
         ]
     },
     {
         id: "82",
         name: "Cav Empt",
         brand: [
-            "Cav",
-            "Empt",
-            "Cav Empt"
+            "cav",
+            "empt",
+            "cav empt"
         ]
     },
     {
         id: "82",
         name: "Yung Lean",
         brand: [
-            "Yung",
-            "Lean",
-            "Янг"
+            "yung",
+            "lean",
+            "янг"
         ]
     },
     {
         id: "82",
         name: "G59 Records",
         brand: [
-            "G59",
-            "Records"
+            "g59",
+            "records"
         ]
     },
     {
         id: "82",
         name: "CultGloria",
         brand: [
-            "CultGloria"
+            "cultgloria"
         ]
     },
     {
         id: "82",
         name: "City Morgue",
         brand: [
-            "Morgue",
-            "City Morgue"
+            "morgue",
+            "city morgue"
         ]
     },
     {
         id: "82",
         name: "TeamSESH",
         brand: [
-            "TeamSESH"
+            "teamsesh"
         ]
     },
     {
         id: "82",
         name: "Gnarcotic",
         brand: [
-            "Gnarcotic"
+            "gnarcotic"
         ]
     },
     {
         id: "82",
         name: "Lil Peep",
         brand: [
-            "Lil Peep",
-            "Lil",
-            "Peep"
+            "lil peep",
+            "lil",
+            "peep"
         ]
     },
     {
         id: "82",
-        name: "XXXtentacion",
+        name: "xxxtentacion",
         brand: [
-            "XXXtentacion",
-            "XXtentacion",
-            "XXtentasion"
+            "xxxtentacion",
+            "xtentacion",
+            "xxxtentasion",
+            "xtentasion",
         ]
     },
     {
         id: "82",
         name: "The Hollow Squad",
         brand: [
-            "Hollow",
-            "Squad",
-            "Hollow Squad"
+            "hollow",
+            "squad",
+            "hollow squad"
         ]
     },
     {
         id: "82",
         name: "Half-Evil 333",
         brand: [
-            "Half-Evil",
-            "Half-Evil 333"
+            "half-evil",
+            "half-evil 333"
         ]
     },
     {
         id: "82",
         name: "Superrradical",
         brand: [
-            "Superrradical",
-            "Superradical",
-            "Superadical"            
+            "superrradical",
+            "superradical",
+            "superadical"            
         ]
     },
     {
         id: "82",
         name: "Drain Gang | Bladee Merch | GTBSG",
         brand: [
-            "Drain Gang",
-            "Bladee Merch",
-            "GTBSG"            
+            "drain gang",
+            "gang",
+            "drain",
+            "bladee merch",
+            "bladee",
+            "gtbsg"            
         ]
     },
 
