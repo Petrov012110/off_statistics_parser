@@ -9,6 +9,9 @@ export const parserPosts: ParserPostsType = (elements, currentBase) => {
     for (const el of elements) {
 
         if ((el.querySelector('.wall_post_text') as HTMLElement) && (el.querySelector('.post_link>.rel_date') as HTMLElement)) {
+            let linkAuthor = '';
+            let nameAuthor = '';
+            let spantext = '';
 
             const html: string = (el.querySelector('.wall_post_text') as HTMLElement).innerText;
             const texthtml: string = html.replace(/\n/gi, ' ');
@@ -17,11 +20,14 @@ export const parserPosts: ParserPostsType = (elements, currentBase) => {
                 return preRes?.slice(preRes.search('https'), preRes.search('album') + 5).replaceAll('\\', '').replaceAll('\\', '');
             });
 
-            let spantext = '';
             if (el.querySelector('.wall_post_more') as HTMLElement) {
                 const str = (el.querySelector('.wall_post_text>span') as HTMLElement).innerHTML;
                 spantext = str.replace(/<br>/gi, ' ');
 
+            }
+            if (el.querySelector('.wall_signed_by') as HTMLElement) {
+                linkAuthor = `https://vk.com${ el.querySelector('.wall_signed > a').getAttribute('href')}`;  
+                nameAuthor =  el.querySelector('.wall_signed > a').innerHTML;           
             }
 
             const lookforprice = (text: any) => {
@@ -54,6 +60,8 @@ export const parserPosts: ParserPostsType = (elements, currentBase) => {
                         price: lookforprice(texthtml),
                         post: `https://vk.com/${el.querySelector('.post_header_info>.post_author>.author').getAttribute("href")}?w=wall${el.querySelector('._post_content>.post_header>.post_image>img').getAttribute("data-post-id")}`,
                         hrefImg: arrImagesHref,
+                        linkAuthor: linkAuthor,
+                        nameAuthor: nameAuthor,
                     });
                     break;
                 }
